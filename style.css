@@ -1,0 +1,74 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.page {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    font-family: sans-serif;
+    height: 100%;
+}
+
+.page>* {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    max-height: 8vh;
+    align-items: center;
+    justify-content: center;
+    flex-grow: .5;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.option {
+    margin: 3px;
+}
+
+.footer {
+    width: 100%;
+    overflow: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-grow: 8;
+    align-items: flex-start;
+}
+
+.calculator {
+    display: flex;
+    border: 2px solid black;
+    width: 80vmin;
+    height: 80vmin;
+}
+
+.column {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    height: 100%;
+}
+
+.square {
+    margin: 1px;
+    flex-grow: 1;
+    background: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+h1 {
+    font-size: 2rem;
+}
