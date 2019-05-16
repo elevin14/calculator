@@ -28,11 +28,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    flex-grow: 1;
-}
-
-.option {
-    margin: 3px;
+    flex-grow: .5;
 }
 
 .footer {
@@ -50,8 +46,8 @@ html, body {
 .calculator {
     display: flex;
     border: 2px solid black;
-    width: 80vmin;
-    height: 80vmin;
+    width: 60vmin;
+    height: 40vmin;
 }
 
 .column {
