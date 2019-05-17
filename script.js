@@ -35,32 +35,49 @@ function buttonPress(e) {
     const disp = document.querySelector('.display');
     let buttonText = e.target.textContent;
     if (["0", "1", '2', '3', '4', '5', '6', '7', '8', '9'].indexOf(buttonText) !== -1) {
-        if (disp.textContent == 0) {
+        if (disp.textContent == 0 || lastWasOperator) {
             disp.textContent = buttonText;
+            lastWasOperator = false;
         } else {
             disp.textContent += buttonText;
         }
     } else if (['/', '+', '-', '*'].indexOf(buttonText) !== -1) {
-        if (operator) {
+        if (lastWasOperator){
+            operator = buttonText
+        }
+        else if (operator) {
             b = disp.textContent;
-            display(operate(operator, a, b))
-            a = disp.textContent;
+            a = operate(operator, a, b)
             operator = buttonText;
+            display(a)
         } else {
             a = disp.textContent;
             operator = buttonText;
-            display(0)
         }
+        lastWasOperator = true;
     } else if (buttonText == '=') {
-        if (operator) {
+        if (lastWasOperator){
+
+        } else if (operator) {
             b = disp.textContent;
+            lastOperator = operator;
             display(operate(operator, a, b))
+            operator = null;
+        } else if (lastOperator) {
+            a = disp.textContent;
+            display(operate(lastOperator, a, b))
         }
     } else if (buttonText == 'Clear') {
         display('0')
         a = 0
         b = 0
         operator = null
+        lastOperator = null
+        lastWasOperator = false;
+    } else if (buttonText == '.'){
+        if (disp.textContent.indexOf('.') == -1){
+            disp.textContent += '.'
+        }
     }
 }
 
@@ -72,4 +89,6 @@ buttons.forEach((button) => {
 let a = 0;
 let b = 0;
 let operator = null;
+let lastOperator = null;
+let lastWasOperator = false;
 display(a)

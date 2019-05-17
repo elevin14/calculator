@@ -54,7 +54,8 @@ html, body {
 }
 
 .display {
-    font-size: 40px;
+    font-size: 35px;
+    font-family: "Lucida Console", Monaco, monospace;
     flex-grow: 1;
     text-align: right;
 }
