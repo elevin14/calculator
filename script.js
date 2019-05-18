@@ -35,7 +35,7 @@ function buttonPress(e) {
     const disp = document.querySelector('.display');
     let buttonText = e.target.textContent;
     if (["0", "1", '2', '3', '4', '5', '6', '7', '8', '9'].indexOf(buttonText) !== -1) {
-        if (disp.textContent == 0 || lastWasOperator) {
+        if (disp.textContent == '0' || lastWasOperator) {
             disp.textContent = buttonText;
             lastWasOperator = false;
         } else {
@@ -75,6 +75,7 @@ function buttonPress(e) {
         lastOperator = null
         lastWasOperator = false;
     } else if (buttonText == '.'){
+        lastWasOperator = false;
         if (disp.textContent.indexOf('.') == -1){
             disp.textContent += '.'
         }
